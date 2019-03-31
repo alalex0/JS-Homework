@@ -161,7 +161,7 @@ console.log("Расход на одну тарелку = ", rashod,"гр");
 for (var i = 0; i < plate; i++) {
 soap = soap - rashod;
 if (soap < 0) {
-console.log("Недостаточно средсва");
+console.log("Недостаточно средства");
 break;
 }
 plateN++;
@@ -173,7 +173,7 @@ console.log("Остаток средства после мытья тарелк�
 }
 console.log("####");
 if (soap < 0) {
-console.log("Недостаточно средсва");
+console.log("Недостаточно средства");
 }else{
 console.log("Остаток средства = ",soap,"гр","Всего вымытых тарелок", plateN,"шт");
 }
@@ -201,3 +201,16 @@ console.log("Остаток средства = ",soap,"гр","Всего вым�
      */
      console.log("Задача 6");
 
+     let time = [0, 1, 2];
+     let timech = [0, 1, 2, 3];
+     let minutech = [0, 1, 2, 3, 4, 5];
+     let minute = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+     let rest = [];
+for (var i = 0; i < time.length; i++) {
+	res = time[i] + timech[i];
+	console.log(res);
+
+	if (time[i] === minutech[i] && timech[i] === minute[i]) {
+		console.log(time[i],timech[i],':',minute[i],minutech[i]);
+	}
+}
