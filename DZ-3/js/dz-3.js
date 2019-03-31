@@ -73,6 +73,32 @@ console.log(sumNatyral(23515));
 */
 
 
+function rangeArr(num1, num2, num3) {
+	if(!num1 || !num2){
+	console.log("Введите начальное и конечное значение 1, 1");
+	return false;
+	}
+	if(isNaN(num1) || isNaN(num2)){
+	console.log("Введите число");
+	return false;
+	}
+	if (!num3) {
+		num3 = 1;
+	}	
+let i = parseInt(num2/num3);
+console.log(i);
+let arrRange = [];
+let sum = num1;
+for (let j = 1; j <= i; j++) {
+	arrRange[j] = sum;
+	sum = sum + num3;
+	}
+	//console.log(arrRange);
+	return arrRange;
+}
+// вызов функции range
+console.log(rangeArr(1, 10, 2));
+
 
 
 
