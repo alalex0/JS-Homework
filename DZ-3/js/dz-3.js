@@ -99,8 +99,30 @@ for (let j = 1; j <= i; j++) {
 // вызов функции range
 console.log(rangeArr(1, 10, 2));
 
+/*
+4. Напишите функцию,  которая в зависимости от 
+переданного в нее целочисленного аргумента count, 
+будет выводить слово «товар» в нужно форме 
+(«12 товаров», но «22 товара» и тд).
+*/
 
+function joinStr(count){
+	let goods = count%10;
 
+if (goods >= 2 && goods <= 4) {
+	let str = "<<"+count + " товара>>";
+	return str;
+	} else if (goods >= 5 && goods <= 9 || goods === 0) {
+	let	str = "<<"+count + " товаров>>";
+	return str;
+	}else if (goods === 1) {
+	let	str = "<<"+count + " товар>>";
+	return str;
+	}
+}
+//вызов функции
+let goods;
+console.log(joinStr(prompt(goods)));
 
 
 
