@@ -2,7 +2,7 @@
     'use strict';
 
 
-
+/*
 let animal = {
     ru:["кот","собака","тигр"],
     en:["cat","dog","tiger"]
@@ -10,7 +10,7 @@ let animal = {
 };
 console.log(animal.ru[0]);
 
-
+*/
 
 
 
@@ -42,12 +42,12 @@ let goods = {
             count: 5
         }
     };
-
+/*
     let a = "price";
     console.log(goods.harp[a])
 console.log(Object.keys(goods));
 console.log(Object.getOwnPropertyNames(goods));
-
+*/
 /*
 1. Написать функцию со следующими аргументами: 
 объект, from (значение от), to (значение до).
@@ -83,16 +83,36 @@ count - количество товара, которое нужно добав�
  позволяет, 
 то выводит информацию об этом в консоль и завершает работу. 
  Для проверки функции используйте объект goods из файла с урока.
+*/   
+function addToCart(obj, title, countToCart) {
+    let arrKey = [];
+    let count;
+    let countnal;
+    arrKey = Object.keys(obj);
+    for (let i = 0; i < arrKey.length; i++) {
+            let card = obj[arrKey[i]]['title'];
+            if(card === title) {
+            countnal = obj[arrKey[i]]['count'];
+            count = countnal - countToCart;
+            if(count < 0){
+                return console.log("Не достаточно товара, " + "Всего товара: ", countnal);
+                }
+            }
+         }
+    return count;
+}
+console.log(addToCart(goods, "Флейта", 51));
+
+/*
+3. Напишите функцию, которая отсортирует массив объектов books
+по значению свойства title. Объект в файле с занятия.
 */
 
-
-
-
-
-
-
-
-
+ let books = [
+        { author: 'Толстой', title: 'Война и мир'},
+        { author: 'Гончаров', title: 'Обломов'},
+        { author: 'Лермонтов', title: 'Герой Нашего Времени'}
+    ];
 
 
 
