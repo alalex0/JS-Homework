@@ -11,12 +11,14 @@
 function searchString(str, str1, str2) {
 		if(str.includes(str1)){
 		let strreplase = str.replace(str1, str2);
-		return console.log(strreplase);
+		console.log(strreplase);
+		return strreplase;
 	}	
-		return console.log("Совпадений нет");
+		console.log("Совпадений нет");
+		return false;
 }
 //вызов функции
-searchString(prompt("Введите строку"), prompt("Введите подстроку для поиска"), prompt("Введите строку для замены подстроки"));
+console.log(searchString(prompt("Введите строку"), prompt("Введите подстроку для поиска"), prompt("Введите строку для замены подстроки")));
 
 
 /*
@@ -39,7 +41,8 @@ function searchNamber(str) {
 				arrnew.push(arr[i]);
 				}
 			}
-			return console.log(arrnew);
+			console.log(arrnew);
+			return arrnew;
 		}
 //вызов функции
 //searchNamber(prompt("Введите строку содержащую буквы и целые числа (дом 48)"));

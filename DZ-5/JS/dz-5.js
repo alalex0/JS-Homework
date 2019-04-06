@@ -59,20 +59,37 @@ console.log(Object.getOwnPropertyNames(goods));
  функции используйте объект goods из файла с урока. 
 */
 
+function getGoods(obj, from, to){
+    let resobj = {}; 
+    for (let key in obj){
+        console.log("key", key);
+        console.log(obj[key]);
+        console.log(obj[key]["price"]);
+        if(obj[key]["price"] >= from && obj[key]["price"] <= to){
+            resobj[key] = obj[key];
+        }
+
+    }
+    //console.log(resobj);
+    return resobj;
+}
+console.log(getGoods(goods, 2000, 3000));
+/*
+
 function getGoods(goods, from, to) {
     let arrKey = [];
-    let arrSortPrice = [];
+    let objSortPrice = {};
     arrKey = Object.keys(goods);
     for (let i = 0; i < arrKey.length; i++) {
      if (goods[arrKey[i]]['price'] >= from && goods[arrKey[i]]['price'] <= to) {
-        arrSortPrice.push(goods[arrKey[i]]);
+        objSortPrice[arrKey[i]] = goods[arrKey[i]];
         //console.log(arrSortPrice);
         }         
     }
-    return arrSortPrice;
+    return objSortPrice;
 }
 console.log(getGoods(goods, 2000, 3000));
-
+*/
 /*
 2. Написать функцию addToCart(obj, title, countToCart) {} ,
  где  obj - объект, title - название товара, 
@@ -90,16 +107,16 @@ function addToCart(obj, title, countToCart) {
     let countnal;
     arrKey = Object.keys(obj);
     for (let i = 0; i < arrKey.length; i++) {
-            let card = obj[arrKey[i]]['title'];
+                let card = obj[arrKey[i]]['title'];
             if(card === title) {
-            countnal = obj[arrKey[i]]['count'];
-            count = countnal - countToCart;
-            if(count < 0){
+                countnal = obj[arrKey[i]]['count'];
+                count = countnal - countToCart;
+                if(count < 0){
                 console.log("Не достаточно товара, " + "Всего товара: ", countnal);
                 return count;
                 }
             }
-         }
+    }
     return count;
 }
 console.log(addToCart(goods, "Флейта", 51));
@@ -116,17 +133,25 @@ console.log(addToCart(goods, "Флейта", 51));
     ];
 
 function sortTitle(books, title) {
-let arrnew =[];
-for (let i = 0; i < books.length; i++) {
-     if(books[i]['title'] === title){
-     arrnew.push(books[i]);
+
+        books.sort(function (a, b){
+            console.log(a.title);
+            console.log(b.title);
+        if(a.title > b.title){
+            return 1;
         }
-    }
-    return arrnew;
+        if(a.title < b.title){
+            return -1;
+        }
+            return 0;
+        });
+        console.log(books);
+        return books;
 }
-console.log(sortTitle(books, 'Обломов'));
+
+console.log(sortTitle(books, 'title'));
 /*
-4. Создайте объект с днями недели. Ключами в нем должны 
+4. Создаa.йте объект с днями недели. Ключами в нем должны 
 служить номера дней от начала недели (понедельник - первый
  и т.д.). 
 Выведите на экран текущий день недели.

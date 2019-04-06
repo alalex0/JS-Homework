@@ -105,11 +105,15 @@ console.log(rangeArr(1, 10, 2));
 будет выводить слово «товар» в нужно форме 
 («12 товаров», но «22 товара» и тд).
 */
-
+/*
 function joinStr(count){
+	
+if(count === 12){
+	let	str = "<<"+count + " товаров>>";
+	return str;
+	}
 	let goods = count%10;
-
-if (goods >= 2 && goods <= 4) {
+if (goods > 2 && goods <= 4) {
 	let str = "<<"+count + " товара>>";
 	return str;
 	} else if (goods >= 5 && goods <= 9 || goods === 0) {
@@ -118,6 +122,27 @@ if (goods >= 2 && goods <= 4) {
 	}else if (goods === 1) {
 	let	str = "<<"+count + " товар>>";
 	return str;
+	}
+}
+*/
+function joinStr(coun){
+	let count = parseInt(coun);
+	if(count === 12 || count === 11 || count === 13 || count === 14){
+		let	str = "<<"+count + " товаров>>";
+		return str;
+		}
+		//let goods = count%10;
+	if (count%10 >= 2 && count%10 <= 4) {
+		let str = "<<"+count + " товара>>";
+		return str;
+	}
+	if (count%10 >= 5 && count%10 <= 9 || count%10 === 0) {
+		let	str = "<<"+count + " товаров>>";
+		return str;
+	}
+	if (count%10 === 1) {
+		let	str = "<<"+count + " товар>>";
+		return str;
 	}
 }
 //вызов функции
