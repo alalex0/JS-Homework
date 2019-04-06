@@ -95,7 +95,8 @@ function addToCart(obj, title, countToCart) {
             countnal = obj[arrKey[i]]['count'];
             count = countnal - countToCart;
             if(count < 0){
-                return console.log("Не достаточно товара, " + "Всего товара: ", countnal);
+                console.log("Не достаточно товара, " + "Всего товара: ", countnal);
+                return count;
                 }
             }
          }
@@ -113,6 +114,52 @@ console.log(addToCart(goods, "Флейта", 51));
         { author: 'Гончаров', title: 'Обломов'},
         { author: 'Лермонтов', title: 'Герой Нашего Времени'}
     ];
+
+function sortTitle(books, title) {
+let arrnew =[];
+for (let i = 0; i < books.length; i++) {
+     if(books[i]['title'] === title){
+     arrnew.push(books[i]);
+        }
+    }
+    return arrnew;
+}
+console.log(sortTitle(books, 'Обломов'));
+/*
+4. Создайте объект с днями недели. Ключами в нем должны 
+служить номера дней от начала недели (понедельник - первый
+ и т.д.). 
+Выведите на экран текущий день недели.
+*/
+
+let day = {
+        1: {
+            Monday: "понедельник"
+        },
+        2: {
+            Tuesday: "вторник"
+        },
+        3: {
+            Wednesday: "среда"
+        },
+        4: {
+            Thursday: "четверг"
+        },
+        5: {
+            Friday: "пятница"
+        },
+        6: {
+            Saturday: "суббота"
+        },
+        7: {
+            Sunday: "воскресенье"
+        }
+    };
+
+
+console.log(Object.keys(day));
+console.log(day[6]['Saturday']);
+
 
 
 
