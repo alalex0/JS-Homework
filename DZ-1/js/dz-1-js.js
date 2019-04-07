@@ -7,19 +7,21 @@ lenght = parseInt(lenght);
 let Square = 2*(height*wight+lenght*height+lenght*wight);
 console.log("Площадь параллелепипеда");
 console.log(Square);
-res = (height > wight)? "высота больше":"ширина больше";
+let res = (height > wight)? "высота больше":"ширина больше";
 console.log(res);
 
 /*2. На садовом участке
- площадью 10 соток , разбили грядки 15 на 25 метров. Сколько м2 осталось незанято?
+ площадью 10 соток , разбили грядки 15 на 25 метров.
+  Сколько м2 осталось незанято?
  */
  let sarea = 10;
  let ratio = 100;
  sarea = parseInt(sarea);
  ratio = parseInt(ratio);
- height = 25;
- wight = 15;
- console.log(sarea*ratio - height*wight,"м2 осталось");
+ h = 25;
+ w = 15;
+ let res2 = (sarea*ratio) - (parseInt((sarea*ratio)/ (h*w))*(h * w));
+ console.log(res2,"м2 осталось");
  
  /*3. Найдите площадь овального кольца,
  полученного из овала площадью 15 дм2 вырезанием овала площадью 600 см2.*/

@@ -48,17 +48,18 @@ console.log(compareArr(arr3, arr4));
 */
 let plus = 0;
 function sumNatyral(num1) {
+	num1 = parseInt(num1);
 if (num1 != 0){
-num1 = parseInt(num1);
-plus += num1%10;
-sumNatyral(num1 /= 10);
+	num1 = parseInt(num1);
+	plus += num1%10;
+	sumNatyral(num1 /= 10);
 }else {
-//console.log("Сумма цифр натурального числа", plus);
+//console.log("введите натуральное число");
 }
 return plus;
 }
 
-console.log(sumNatyral(23515));
+console.log(sumNatyral(25));
 
 
 /*
@@ -89,7 +90,7 @@ let i = parseInt(num2/num3);
 console.log(i);
 let arrRange = [];
 let sum = num1;
-for (let j = 1; j <= i; j++) {
+for (let j = 0; j <= i - 1; j++) {
 	arrRange[j] = sum;
 	sum = sum + num3;
 	}
@@ -147,7 +148,7 @@ function joinStr(coun){
 }
 //вызов функции
 let goods;
-console.log(joinStr(prompt(goods)));
+//console.log(joinStr(prompt(goods)));
 
 
 
