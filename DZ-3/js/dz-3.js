@@ -48,7 +48,6 @@ console.log(compareArr(arr3, arr4));
 */
 let plus = 0;
 function sumNatyral(num1) {
-	num1 = parseInt(num1);
 if (num1 != 0){
 	num1 = parseInt(num1);
 	plus += num1%10;
@@ -59,7 +58,7 @@ if (num1 != 0){
 return plus;
 }
 
-console.log(sumNatyral(25));
+console.log(sumNatyral(2552));
 
 
 /*

@@ -103,7 +103,7 @@ for (let i = 0; i < arr2.length; i++) {
 
      let arr3 = [];
      let m = 0;
-     m = prompt("Введите число");
+   //  m = prompt("Введите число");
      console.log("Массив пользователя по числу m")
      for (var i = 0; i < m; i++) {
      	arr3[i] = i;
@@ -201,16 +201,19 @@ console.log("Остаток средства = ",soap,"гр","Всего вым�
      */
      console.log("Задача 6");
 
-     let time = [0, 1, 2];
-     let timech = [0, 1, 2, 3];
-     let minutech = [0, 1, 2, 3, 4, 5];
-     let minute = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-     let rest = [];
-for (var i = 0; i < time.length; i++) {
-	res = time[i] + timech[i];
-	console.log(res);
-
-	if (time[i] === minutech[i] && timech[i] === minute[i]) {
-		console.log(time[i],timech[i],':',minute[i],minutech[i]);
-	}
+let time = 24;   
+let res = 0;
+for (let i = 0; i < time; i++) {	
+  if (i <= 5){
+    res ++;
+    //console.log(res1);
+  }
+  if (i >= 10 && i <= 15) {
+    res ++;
+  }
+  if (i >= 20 && i <= 23) {
+    res ++;
+  } 
 }
+
+console.log(res);
