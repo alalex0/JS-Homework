@@ -131,7 +131,7 @@ console.log(addToCart(goods, "Флейта", 51));
         { author: 'Гончаров', title: 'Обломов'},
         { author: 'Лермонтов', title: 'Герой Нашего Времени'}
     ];
-
+   
 function sortTitle(books, title) {
 
         books.sort(function (a, b){
@@ -148,8 +148,15 @@ function sortTitle(books, title) {
         console.log(books);
         return books;
 }
-
 console.log(sortTitle(books, 'title'));
+
+/*function sortBooks(arr) {
+arr.sort(function (a, b) {
+
+});
+}
+*/
+
 /*
 4. Создаa.йте объект с днями недели. Ключами в нем должны 
 служить номера дней от начала недели (понедельник - первый
