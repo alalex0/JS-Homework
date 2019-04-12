@@ -132,7 +132,7 @@ console.log(addToCart(goods, "Флейта", 51));
         { author: 'Лермонтов', title: 'Герой Нашего Времени'}
     ];
    
-function sortTitle(books, title) {
+function sortTitle(books) {
 
         books.sort(function (a, b){
             console.log(a.title);
@@ -148,7 +148,7 @@ function sortTitle(books, title) {
         console.log(books);
         return books;
 }
-console.log(sortTitle(books, 'title'));
+console.log(sortTitle(books));
 
 /*function sortBooks(arr) {
 arr.sort(function (a, b) {
