@@ -38,7 +38,7 @@ for (let i = 0; i < articles.length; i++) {
 createTable(articles);
 
 function createTable(arr) {
-
+    
             let table = document.getElementById("table");
 
             let row = table.insertRow(0);
