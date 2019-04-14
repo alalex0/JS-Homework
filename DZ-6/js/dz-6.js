@@ -78,3 +78,65 @@ function createTable(arr) {
      }  
             
 }
+let titleElem = document.querySelectorAll("tr > td");
+for (let i = 0; i < titleElem.length; i++) {
+    titleElem[i].addEventListener('click',sortEle);
+   // let title = this.innerHTML;
+}
+function sortEle() {
+    console.log(this);
+    let title1 = this.innerHTML;
+    console.log(title1);
+    function sortTitle(books) {
+
+        books.sort(function (a, b){
+            console.log(a[title1]);
+            console.log(b[title1]);
+        if(a[title1] > b[title1]){
+            return 1;
+        }
+        if(a[title1] < b[title1]){
+            return -1;
+        }
+            return 0;
+        });
+        console.log(books);
+        return books;
+    };
+    console.log(sortTitle(articles));
+}
+
+/*
+let arrtitle = [];
+let titleElem = document.querySelectorAll("tr > td");
+for (let i = 0; i < titleElem.length; i++) {
+    titleElem[i].addEventListener('click',sortEle);
+   // let title = this.innerHTML;
+}
+//console.log(titleElem[0].innerHTML);
+console.log(arrtitle);
+function sortElem() {
+}
+//console.log(title);
+function sortEle(articles) {
+   // console.log(this.innerHTML);
+   let title = this.innerHTML;
+//    console.log('его соседний элемнт справа', this.nextElementSibling);
+        articles.sort(function (a, b){
+            console.log(a.title);
+            console.log(b.title);
+        if(a.this.innerHTML > b.title){
+            return 1;
+        }
+        if(a.title < b.title){
+            return -1;
+        }
+            return 0;
+        });
+       // console.log(books);
+        return articles;
+           
+}
+
+console.log(sortEle(articles));
+*/
