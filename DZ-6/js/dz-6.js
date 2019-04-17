@@ -23,66 +23,83 @@ let articles = [
         description: "Описание",
         author: "Peter"
     }
+
 ];
-    articles.reverse();
-    //console.log(articles);
-   // console.log(Object.keys(articles));
-    let arrnew = [];
-for (let i = 0; i < articles.length; i++) {
 
-    arrnew = Object.keys(articles[i]);
-   // console.log(Object.keys(articles[0]));
-       
-}
-//console.log(arrnew);
-createTable(articles);
+let genTable = {
+    init: function(data) {
+        this.table =document.createElement('table');
+        this.table.setAttribute('border', '1'); 
+        this.data = data;
+        console.log(this);
+    },
+    genCaption: function() {
+        let captonRow = this.table.insertRow();
+        for(key in this.data[0]){
+            let cell = captonRow.insertCell();
+            cell.innerText = key;
+            console.log(key);
+            cell.classList.add('caption-cell');
 
-function createTable(arr) {
+        }
+    },
+    genContent: function() {
+        for (let i = 0; i < this.data.length; i++) {
+            let row = this.table.insertRow();
+            for(let key in this.data[i]){
+                let cell = row.insertCell();
+                cell.innerText = this.data[i][key];
+                cell.classList.add('content-cell');
+            }
+        }
+    },
+   sortEle: function() {
+    let titleElem = document.querySelectorAll("tr > td");
+        for (let i = 0; i < titleElem.length; i++) {
+            titleElem[i].addEventListener('click',sortTitle);
+        }
+        console.log(this);
+        let title1 = this.innerHTML;
+        console.log(title1);
+    function sortTitle(data) {
+
+        data.sort(function (a, b){
+            console.log(a[title1]);
+            console.log(b[title1]);
+        if(a[title1] > b[title1]){
+            return 1;
+        }
+        if(a[title1] < b[title1]){
+            return -1;
+        }
+            return 0;
+        });
+        console.log(data);
+        return data;
+    };
+   // console.log(sortEle(data));
+}, 
     
-            let table = document.getElementById("table");
+    getTable: function(data) {
+        this.init(data);
+        this.genCaption();
+        this.genContent();
+        this.sortEle();
+        return this.table;
+    }
 
-            let row = table.insertRow(0);
-            let cell1 = row.insertCell(0);
-            let cell2 = row.insertCell(1);
-            let cell3 = row.insertCell(2);
-            let cell4 = row.insertCell(3);
+};
 
-            
-            cell1.innerText = arrnew[0];
-            cell2.innerText = arrnew[1];
-            cell3.innerText = arrnew[2];
-            cell4.innerText = arrnew[3]; 
-            
-   
-   for (let i = 0; i < arr.length; i++) {         
-            table.setAttribute("border", "1");
-     
-            let caption = table.createCaption();
-                caption.innerText = 'Таблица';
-       
-             row = table.insertRow(1);
-           
+let conteinerTable = document.getElementById('table');
+conteinerTable.appendChild(genTable.getTable(articles));
 
-            let cell5 = row.insertCell(0);
-            let cell6 = row.insertCell(1);
-            let cell7 = row.insertCell(2);
-            let cell8 = row.insertCell(3);
-           
-            
-            cell5.innerText = arr[i]['id'];
-            cell6.innerText = arr[i]['title'];
-            cell7.innerText = arr[i]['description'];
-            cell8.innerText = arr[i]['author'];
-    
-  
-     }  
-            
-}
+
 let titleElem = document.querySelectorAll("tr > td");
 for (let i = 0; i < titleElem.length; i++) {
     titleElem[i].addEventListener('click',sortEle);
    // let title = this.innerHTML;
 }
+
 function sortEle() {
     console.log(this);
     let title1 = this.innerHTML;
@@ -103,40 +120,8 @@ function sortEle() {
         console.log(books);
         return books;
     };
-    console.log(sortTitle(articles));
-}
+ console.log(sortTitle(articles));
+ 
+}  
 
-/*
-let arrtitle = [];
-let titleElem = document.querySelectorAll("tr > td");
-for (let i = 0; i < titleElem.length; i++) {
-    titleElem[i].addEventListener('click',sortEle);
-   // let title = this.innerHTML;
-}
-//console.log(titleElem[0].innerHTML);
-console.log(arrtitle);
-function sortElem() {
-}
-//console.log(title);
-function sortEle(articles) {
-   // console.log(this.innerHTML);
-   let title = this.innerHTML;
-//    console.log('его соседний элемнт справа', this.nextElementSibling);
-        articles.sort(function (a, b){
-            console.log(a.title);
-            console.log(b.title);
-        if(a.this.innerHTML > b.title){
-            return 1;
-        }
-        if(a.title < b.title){
-            return -1;
-        }
-            return 0;
-        });
-       // console.log(books);
-        return articles;
-           
-}
 
-console.log(sortEle(articles));
-*/

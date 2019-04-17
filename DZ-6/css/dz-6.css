@@ -1,0 +1,12 @@
+.caption-cell {
+	background: darkorange;
+	font-weight: bold;
+	text-align: center;
+	padding: 10px;
+}
+
+.content-cell {
+	background: lightgrey;
+	text-align: center;
+	padding: 5px;
+}
