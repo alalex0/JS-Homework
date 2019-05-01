@@ -1,0 +1,66 @@
+
+
+#present_container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+#present_container p {
+    background: red;
+    display: inline-block;
+    margin: 10px;
+    padding: 30px 5px;
+    text-align: center;
+    width: 200px;
+    color: white;
+}
+
+#present_container .present {
+    background-color: yellow;
+    color: red;
+    transition-property: background-color;
+    transition-duration: 1s;
+}
+
+
+body {
+    height: 2000px;
+    margin: 0;
+}
+
+.top-block {
+    background-color: orangered;
+    padding: 30px;
+    text-align: center;
+}
+
+.fixed-block {
+    padding: 20px 30px;
+    background: orange;
+    text-align: center;
+}
+h4, h3 {
+    text-align: center;
+    font-size: 1em;
+}
+
+.fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    
+    background: rgba(85, 85, 85, 0.7);
+}
+
+#priz {
+    background: orange;
+    display: inline-block;
+    margin: 0;
+    padding: 30px 5px;
+    text-align: center;
+    width: 200px;
+    color: white;
+    
+}
+
