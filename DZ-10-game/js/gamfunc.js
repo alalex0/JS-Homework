@@ -1,15 +1,92 @@
 //создание класса
+class Unitdrow {
+	constructor(xx, yy, imageE){
+		this._xx = xx;
+		this._yy = yy;
+		this._imageE = imageE;
+	}
+	showDrow(){
+		let canvas = document.getElementsByTagName('canvas')[0];
+		canvas.widht = 900;
+		canvas.height = 600;
+		let context = canvas.getContext('2d');
+		context.fillStyle = 'green';
+		context.fillRect(0, 0, 900, 600);
+
+		
+		let catImg = new Image();
+		catImg.src = this._imageE;
+		let xx = this._xx;
+		let yy = this._yy;
+		catImg.onload = function () {
+				// body....
+			context.drawImage(catImg, xx, yy, 80, 80);
+		};
+	}
+	
+
+}
+class Unitmove {
+	constructor(x1, y1){
+		this._x1 = x1;
+		this._y1 = y1;
+
+	}
+	move(){
+		console.log('tntmy', enemyone.x, enemyone.y);
+		let x = player.x;
+			let y = player.y;
+		document.addEventListener("keypress", cord );
+		function cord(event){
+			if(event.code === 'KeyD'){
+					x += 4;
+					console.log(x);
+					
+				} else if(event.code === 'KeyA'){
+					x -= 4;
+				} else if (event.code === 'KeyW') {
+					y -= 4;
+				} else if (event.code === 'KeyS') {
+					y += 4;
+
+				}
+				console.log(x, y);
+			if(x > enemyone.x - 100 && x < enemyone.x + 80 &&
+						y > enemyone.y - 80 && y < enemyone.y +80){
+						//console.log('убит', x, enemyone.x);
+						gameover.showDrow();
+						neca.showDrow();
+					}
+			if(x > bot.x - 100 && x < bot.x + 80 &&
+						y > bot.y - 80 && y < bot.y +80){
+						//console.log('друг', x, bot.x);
+						
+						sponge.showDrow();
+						ananas.showDrow();
+						//playenemyone.showDrow();
+						game.showDrow();
+						ananasThree.showDrow();
+					}
+			if(x >= 160  && y >= 112){
+						//console.log('друг', x, ananasbot.x);
+						
+					return	winners.showDrow();
+					}
+
+		}
+	
+	}		
+}
+
 class Unit {
 	constructor(name, x, y, image){
 		this._name = name;
 		this._x = x;
 		this._y = y;
 		this._image = image;
+		this._kill = false;
 	}
-	fight(enemyOne){
-		//механизм драки
-		console.log(this._name, 'напал на', enemyOne.name);
-	}
+	
 	draw() {
 		let canvas = document.getElementsByTagName('canvas')[0];
 		canvas.widht = 900;
@@ -45,84 +122,13 @@ class Unit {
 					y += 4;
 
 				}
-	
+				
 				context.drawImage(catImg, x, y, 80, 80);
 			}
 
 			};
 		}
-		if(this._name === 'Бот'){		
-			catImg.onload = function () {
-				// body...
-			context.drawImage(catImg, bot.x, bot.y, 70, 70);
-			};
-			let x = bot.x;
-			let y = bot.y;
-			document.addEventListener('keypress', movePic);
-
-			function movePic(event) {
-				console.log(event);
-				context.fillStyle = 'green';
-				context.fillRect(x, y, 70, 70);
-				
-				 if(event.code === 'KeyD'){
-					x += 1;
-				} else if(event.code === 'KeyA'){
-					x -= 1;
-				} else if (event.code === 'KeyW') {
-					y -= 1;
-				} else if (event.code === 'KeyS') {
-					y += 0;
-
-				}
-			
-				context.drawImage(catImg, x, y, 70, 70);
-
-			}
-		}
-		if(this._name === 'Враг'){
-			
-			catImg.onload = function () {
-				// body...
-			context.drawImage(catImg, enemyone.x, enemyone.y, 70, 70);
-			};
-			function getRandomX(min, max) {
-				  		return Math.random() * (max - min) + min;
-				}
-			let x = enemyone.x;
-			let y = enemyone.y;
-			document.addEventListener('keypress', movePic);
-
-			function movePic(event) {
-				console.log(event);
-				context.fillStyle = 'green';
-				context.fillRect(x, y, 70, 70);
-				
-				 if(event.code === 'KeyD'){
-					x = getRandomX(enemyone.x, bot.x);
-				} else if(event.code === 'KeyA'){
-					x = getRandomX(enemyone.x, bot.x);;
-				} else if (event.code === 'KeyW') {
-					y = getRandomX(player.y, enemyone.y);
-				} else if (event.code === 'KeyS') {
-					y = getRandomX(player.y, enemyone.y);
-
-				}
-				if(x > player.x - 100 && x < player.x + 80 &&
-						y > player.y - 50 && y < player.y +80){
-						
-						
-						
-						console.log('убит');
-					
-					}
-				context.drawImage(catImg, x, y, 70, 70);
-
-			}
-		}
-		console.log(enemyone.x);
-		console.log(bot.x);
-		console.log(player.x);
+		
 
 	}
 	
