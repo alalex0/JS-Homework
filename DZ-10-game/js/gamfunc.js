@@ -26,6 +26,8 @@ class Unitdrow {
 	
 
 }
+
+
 class Unitmove {
 	constructor(x1, y1){
 		this._x1 = x1;
@@ -33,9 +35,10 @@ class Unitmove {
 
 	}
 	move(){
-		console.log('tntmy', enemyone.x, enemyone.y);
+		console.log('enemyone', enemyone.x, enemyone.y);
 		let x = player.x;
 			let y = player.y;
+		
 		document.addEventListener("keypress", cord );
 		function cord(event){
 			if(event.code === 'KeyD'){
